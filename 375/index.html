@@ -1,0 +1,41 @@
+
+  <html>
+    <head>
+      <title></title>
+    </head>
+    <body>
+      <div data-role="module-issues" class="module" role="module" data-type="issues" style="color:#444444; font-size:12px; line-height:20px; padding:16px 16px 16px 16px;" data-muid="4e838cf3-9892-4a6d-94d6-170e474d21e5">
+        <div class="Issues--body">
+          <p class="Issues--header"
+            style="font-size:12px;line-height:20px"
+          >
+            The sections listed below have issues that require attention to ensure a successful launch.  Follow the links to Course Manager to review and correct course sections
+          </p>
+          <p>
+            Follet {{Sub_Org_Title}} </p>
+            <p>As of {{formatDate timeStamp dateFormat}} </p>
+        </div>
+
+        {{#each missing}}
+        <section style="padding:16px 16px 16px 0px;">
+            <b>{{this.title}}</b>
+            <p>
+            {{#if this.content}}
+                {{#notEquals this.title "LTI placement Issuess"}}
+                The following
+                {{/notEquals}}
+            {{this.content}}. Please click on a link to review.</p>
+            <p>X out of Y records are missing required fields to launch. </p>
+            <p><em>Hint:</em></p>
+            <a href="{{{this.url}}}" target="_blank" style="font-family:sans-serif;">
+            Link to takes user to Course Manager that is filtered to display pertinent records
+          </a>
+          {{else}}
+          <p>There are no issues found at this time</p>
+            {{/if}}
+        </section>
+
+        {{/each}}
+      </div>
+    </body>
+  </html>
